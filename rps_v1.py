@@ -8,18 +8,23 @@ class RPS:
         "your_score": [],
         "computer_score": [],
     }
-    outcome = {
-        "Draw": (1,1),
-        "You won": (2,0),
-        "You lost": (0,2),
-    }
     won_case = ((1, 3), (2, 1), (3, 2))
     your_final_score = 0
     computer_final_score = 0
 
     def update_score(result):
-        RPS.score["your_score"].append(RPS.outcome[result][0])
-        RPS.score["computer_score"].append(RPS.outcome[result][1])
+        if result == "Draw":
+            RPS.score["your_score"].append(1)
+            RPS.score["computer_score"].append(1)
+        elif result == "You won":
+            RPS.score["your_score"].append(2)
+            RPS.score["computer_score"].append(0)
+        elif result == "Penalty":
+            RPS.score["your_score"].append(-1)
+            RPS.score["computer_score"].append(1)
+        elif result == "You lost":
+            RPS.score["your_score"].append(0)
+            RPS.score["computer_score"].append(2)
 
     def check_result(self, your_choice, computer_choice):
         result = ""
