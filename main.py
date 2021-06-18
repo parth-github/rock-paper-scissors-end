@@ -5,7 +5,6 @@ rps = RPS()
 rounds = int(input("Enter the number of rounds you want to play:\n"))
 
 for i in range(1, rounds + 1):
-    result = ""
     print(f"Round:{i}")
     computer_choice = random.randint(1, 3)
     your_choice = int(
